@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh; 
+    margin: 0;
+    flex-direction: row; /* Establece la dirección del flex a fila por defecto */
+}
+
+.container-tv {
+    flex: 8;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tv {
+    margin-top: 2%;
+    background-color: gray;
+    height: 70%;
+    width: 80%; 
+    padding: 2%;
+    display: flex;
+}
+
+.imagen{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+.base-rect{
+background-color: gray;
+height: 5%;
+width: 10%;
+}
+
+.base-ova {
+    width: 30%;
+    height: 3%; 
+    background-color: gray; 
+    border-radius: 50%;
+    margin-top: -1px;
+}
+
+
+.container-control {
+    background-color: blueviolet;
+    flex: 2;
+    height: 100%;
+}
+
+/* Consulta de medios para pantallas pequeñas */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .container-control {
+        height: auto;
+    }
+
+    .base-ova{
+        height: 5%;
+    }
+}
