@@ -87,9 +87,59 @@ width: 10%;
 
 
 .container-control {
-    background-color: blueviolet;
     flex: 2;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-tv{
+    width: 60%;
+    height: 80%;
+    background-color: black;
+    border-radius: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
+.botones-arriba{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.numeros{
+    margin-top: 5%;
+    width: 100%;
+    height: 40%;
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-vol-cha{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.volumen{
+    width: 30%;
+    background-color: green;
+    height: 100%;
+    border-radius: 20%;
+}
+
+span{
+    background-color: antiquewhite;
+    text-align: center;
 }
 
 /* Consulta de medios para pantallas pequeñas */
