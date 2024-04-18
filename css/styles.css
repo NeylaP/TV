@@ -52,6 +52,7 @@ body {
     width: 100%;
     padding-right: 10px;
     padding-top: 1px;
+    height: 5%;
 }
 
 
@@ -67,8 +68,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center; 
+    height: 300%;
 }
 
+.logo-samsung{
+    height: 100%;
+}
 
 
 .base-rect{
