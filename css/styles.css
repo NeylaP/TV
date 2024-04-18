@@ -124,7 +124,7 @@ width: 10%;
 }
 
 .btn-vol-cha{
-    height: 20%;
+    height: 15%;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -132,7 +132,7 @@ width: 10%;
 }
 
 .volumen{
-    width: 30%;
+    width: 25%;
     /* background-color: green; */
     height: 100%;
     /* border-radius: 20%; */
@@ -185,6 +185,59 @@ span{
 .ok {
     font-weight: bold;
 }
+
+/* .logos--netflix::after { */
+
+.btn-log {
+    background-color: #a9a9a9;
+    width: 25%;
+    height: 60%;
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-netflix{
+    content: url("../images/netflix.png");
+  }
+  
+  .btn-star{
+    content: url("../images/star-plus.png");
+  }
+
+  .btn-extras{
+    margin-top: 10px;
+    height: 8%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .btn-ex-set{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .btn-exit, .btn-settings {
+    font-size: 75%;
+    background-color: #a9a9a9;
+    width: 20%;
+    height: 100%;
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 /* Consulta de medios para pantallas pequeñas */
 @media (max-width: 768px) {
     body {
@@ -209,8 +262,13 @@ span{
         width: 100%;
     }
 
-    .botones-arriba, .numeros, .direction-buttons, .btn-vol-cha {
+    .numeros, .direction-buttons, .btn-vol-cha {
         flex-direction: row;
+        height: auto;
+    }
+
+    .botones-arriba, .btn-extras{
+        flex-direction: column;
         height: auto;
     }
 }
