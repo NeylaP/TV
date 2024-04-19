@@ -4,6 +4,8 @@ body {
     height: 100vh; 
     margin: 0;
     flex-direction: row;
+    user-select: none;
+    cursor: pointer;
 }
 
 .container-tv {
@@ -52,7 +54,7 @@ body {
     width: 100%;
     padding-right: 10px;
     padding-top: 1px;
-    height: 5%;
+    height: 3%;
 }
 
 
@@ -68,7 +70,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center; 
-    height: 300%;
+    height: 350%;
 }
 
 .logo-samsung{
@@ -114,6 +116,17 @@ width: 10%;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
+    border-radius: 50%;
+}
+
+.btn-power, .btn-lujo{
+    background-color: red;
+    border-radius: 50%;
+    height: 45%;
+    width: 15%;
+    line-height: 143%;
+    align-items: center;
+    justify-content: center;
 }
 
 .numeros{
@@ -123,9 +136,17 @@ width: 10%;
     display: grid;
     grid-template-columns: repeat(3, 20%);
     grid-template-rows: repeat(3, 24%);
-    gap: 2%;
+    gap: 1%;
     align-items: center;
     justify-content: center;
+}
+
+.btn-number{
+    padding: 1px;
+    width: 80%;
+    height: 70%;
+    border-radius: 50%;
+    line-height: 180%;
 }
 
 .btn-vol-cha{
@@ -138,9 +159,7 @@ width: 10%;
 
 .volumen{
     width: 25%;
-    /* background-color: green; */
     height: 100%;
-    /* border-radius: 20%; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -232,7 +251,7 @@ span{
     flex-direction: row;
   }
 
-  .btn-exit, .btn-settings {
+   .btn-exit, .btn-settings {
     font-size: 75%;
     background-color: #a9a9a9;
     width: 20%;
@@ -241,7 +260,14 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+    user-select: none;
+  } 
+
+/* Opcional: Estilos para cuando el span esté en un estado activo o presionado */
+.btn-exit:active, .btn-settings:active, .btn-power:active {
+    background-color: #2a2a2a; /* Color más oscuro cuando se presiona */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra menos pronunciada */
+}
 
 /* Consulta de medios para pantallas pequeñas */
 @media (max-width: 768px) {
