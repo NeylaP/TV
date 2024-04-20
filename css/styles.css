@@ -1,7 +1,7 @@
 body {
     display: flex;
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     margin: 0;
     flex-direction: row;
     user-select: none;
@@ -12,7 +12,7 @@ body {
     flex: 8;
     height: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
@@ -21,16 +21,17 @@ body {
     margin-top: 2%;
     background-color: black;
     height: 70%;
-    width: 80%; 
-    padding: 2%;
+    width: 80%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding-bottom: 1%;
 }
 
-.imagen{
+.imagen {
     width: 100%;
     height: 100%;
     background-color: rgb(32, 32, 32);
@@ -38,56 +39,38 @@ body {
 
 /* Estilo para el div de marca-tv */
 .marca-tv {
-    font-family: 'SamsungSharpSans', sans-serif;
-    font-weight: bold;
-    font-size: 0.8vw;
-    color: #cccccc;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: linear-gradient(45deg, #dcdcdc, #a9a9a9, #dcdcdc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: flex; 
+    display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
-    padding-right: 10px;
-    padding-top: 1px;
-    height: 3%;
+    height: 5%;
 }
 
 
 .circulo-rojo {
-    width: 1%; 
-    height: 50%;
+    width: 1%;
+    height: 40%;
     background-color: rgb(99, 0, 0);
     border-radius: 50%;
 }
 
-.container-text {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    height: 350%;
-}
 
-.logo-samsung{
-    height: 100%;
+
+.logo-samsung {
+    height: 200%;
 }
 
 
-.base-rect{
-background-color: black;
-height: 5%;
-width: 10%;
+.base-rect {
+    background-color: black;
+    height: 5%;
+    width: 10%;
 }
 
 .base-ova {
     width: 30%;
-    height: 3%; 
-    background-color: black; 
+    height: 3%;
+    background-color: black;
     border-radius: 50%;
     margin-top: -1px;
 }
@@ -101,7 +84,7 @@ width: 10%;
     align-items: center;
 }
 
-.control-tv{
+.control-tv {
     width: 60%;
     height: 80%;
     background-color: black;
@@ -110,7 +93,7 @@ width: 10%;
     flex-direction: column;
 }
 
-.botones-arriba{
+.botones-arriba {
     height: 10%;
     width: 100%;
     display: flex;
@@ -119,7 +102,9 @@ width: 10%;
     border-radius: 50%;
 }
 
-.btn-power, .btn-lujo{
+.btn-power,
+.btn-lujo {
+    color: white;
     background-color: red;
     border-radius: 50%;
     height: 45%;
@@ -129,7 +114,7 @@ width: 10%;
     justify-content: center;
 }
 
-.numeros{
+.numeros {
     margin-top: 5%;
     width: 100%;
     height: 30%;
@@ -139,34 +124,39 @@ width: 10%;
     gap: 1%;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
 
-.btn-number{
+.btn-number {
     padding: 1px;
     width: 80%;
     height: 70%;
     border-radius: 50%;
     line-height: 180%;
+    background-color: rgb(83, 83, 83);
+    color: white;
 }
 
-.btn-vol-cha{
+.btn-vol-cha {
     height: 15%;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
+    color: white;
 }
 
-.volumen{
+.volumen {
     width: 25%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-.mayor{
+
+.mayor {
     margin-top: 10%;
-    background-color: aqua;
+    background-color: rgb(123 123 185 / 57%);
     height: 45%;
     width: 80%;
     border-top-left-radius: 20%;
@@ -176,9 +166,9 @@ width: 10%;
     align-items: center;
 }
 
-.menor{
+.menor {
     margin-top: 2%;
-    background-color: aqua;
+    background-color: rgb(123 123 185 / 57%);
     height: 45%;
     width: 80%;
     border-bottom-left-radius: 20%;
@@ -187,7 +177,8 @@ width: 10%;
     justify-content: center;
     align-items: center;
 }
-span{
+
+span {
     background-color: antiquewhite;
     text-align: center;
     margin: 0;
@@ -197,7 +188,7 @@ span{
     height: 20%;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
+    gap: 8px;
     justify-items: center;
 }
 
@@ -206,31 +197,60 @@ span{
     grid-template-columns: repeat(3, 1fr);
 }
 
+.button-direction-lado {
+    border: none;
+    border-radius: 40%;
+    width: 90%;
+    background-color: rgb(83, 83, 83);
+    color: white;
+}
+
 .ok {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
+}
+
+
+.button-direction-arr {
+    border: none;
+    width: 18%;
+    border-radius: 40%;
+    background-color: rgb(83, 83, 83);
+    color: white;
 }
 
 /* .logos--netflix::after { */
 
 .btn-log {
-    background-color: #a9a9a9;
+    background-color: rgb(83, 83, 83);
     width: 25%;
     height: 60%;
     border-radius: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
-  .btn-netflix{
-    content: url("../images/netflix.png");
-  }
-  
-  .btn-star{
-    content: url("../images/star-plus.png");
-  }
+.btn-netflix img {
+    width: 50%;
+    height: auto;
+}
 
-  .btn-extras{
+
+.btn-star img {
+    width: 90%;
+    height: auto;
+}
+
+.btn-star {
+    font-size: 60%;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-extras {
     margin-top: 10px;
     height: 8%;
     width: 100%;
@@ -238,9 +258,9 @@ span{
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-  }
+}
 
-  .btn-ex-set{
+.btn-ex-set {
     margin-top: 10px;
     margin-bottom: 10px;
     height: 4%;
@@ -249,11 +269,12 @@ span{
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-  }
+}
 
-   .btn-exit, .btn-settings {
+.btn-exit,
+.btn-settings {
     font-size: 75%;
-    background-color: #a9a9a9;
+    background-color: rgb(83, 83, 83);
     width: 20%;
     height: 100%;
     border-radius: 25%;
@@ -261,12 +282,22 @@ span{
     align-items: center;
     justify-content: center;
     user-select: none;
-  } 
+    color: white;
+    ;
+}
 
-/* Opcional: Estilos para cuando el span esté en un estado activo o presionado */
-.btn-exit:active, .btn-settings:active, .btn-power:active {
-    background-color: #2a2a2a; /* Color más oscuro cuando se presiona */
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra menos pronunciada */
+
+.button-direction-lado:active,
+.btn-number:active,
+.mayor:active,
+.menor:active,
+.button-direction-arr:active,
+.btn-log:active,
+.ok:active,
+.btn-exit:active,
+.btn-settings:active,
+.btn-power:active {
+    filter: brightness(50%);
 }
 
 /* Consulta de medios para pantallas pequeñas */
@@ -279,11 +310,11 @@ span{
         height: auto;
     }
 
-    .base-ova{
+    .base-ova {
         height: 5%;
     }
 
-    .tv{
+    .tv {
         padding: 1%;
     }
 
@@ -293,12 +324,15 @@ span{
         width: 100%;
     }
 
-    .numeros, .direction-buttons, .btn-vol-cha {
+    .numeros,
+    .direction-buttons,
+    .btn-vol-cha {
         flex-direction: row;
         height: auto;
     }
 
-    .botones-arriba, .btn-extras{
+    .botones-arriba,
+    .btn-extras {
         flex-direction: column;
         height: auto;
     }
