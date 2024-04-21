@@ -15,7 +15,13 @@
         <div class="tv">
             <div class="imagen">
                 <img class="bienvenida" id="imagen-tv" src="" alt="">
-                <span class="channel-n" id="number-channel"></span>
+                <div class="data-channel" id="channel-data">
+                    <div class="channel-column">
+                        <span class="channel-name" id="name-channel"></span>
+                        <span class="channel-program" id="program-channel"></span>
+                    </div>
+                    <span class="channel-number" id="number-channel"></span>
+                </div>
                 <span class="volumen-n" id="number-vol"></span>
             </div>
             <div class="marca-tv">
@@ -49,15 +55,15 @@
                 <span class="btn-number" onclick="changeChannel(7)">7</span>
                 <span class="btn-number" onclick="changeChannel(8)">8</span>
                 <span class="btn-number" onclick="changeChannel(9)">9</span>
-                <span class="btn-number"><i class="bi bi-volume-mute-fill"></i></span>
+                <span class="btn-number" id="mute"><i class="bi bi-volume-mute-fill"></i></span>
                 <span class="btn-number" onclick="changeChannel(0)">0</span>
                 <span class="btn-number" onclick="changeChannel(null, true)"
                     style="font-size: 52%; display: flex; align-items: center; justify-content: center;">PREV.</span>
             </div>
             <div class="btn-ex-set">
                 <span class="btn-settings">Menu</span>
-                <span class="btn-exit" style="font-size: 55%">CH LIST</span>
-                <span class="btn-exit">Exit</span>
+                <span class="btn-exit"style="font-size: 55%">CH LIST</span>
+                <span class="btn-exit" id="exit">Exit</span>
             </div>
             <div class="direction-buttons">
                 <button class="button-direction-arr"><i class="bi bi-caret-up-fill"></i></button>
@@ -79,9 +85,9 @@
                 </div>
             </div>
             <div class="btn-extras">
-                <span class="btn-netflix btn-log"><img src="./images/netflix.png" alt=""></span>
-                <span class="btn-youtube btn-log"><i class="bi bi-youtube"></i></span>
-                <span class="btn-star btn-log"><img src="./images/star-plus.png" alt=""></span>
+                <span class="btn-netflix btn-log" id="netflix"><img src="./images/netflix.png" alt=""></span>
+                <span class="btn-youtube btn-log" id="youtube"><i class="bi bi-youtube"></i></span>
+                <span class="btn-star btn-log" id="start-plus"><img src="./images/star-plus.png" alt=""></span>
             </div>
         </div>
     </div>
