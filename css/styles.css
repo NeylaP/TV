@@ -55,6 +55,15 @@ body {
     width: 25%;
 }
 
+.list-channel{
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    background-color: aquamarine;
+  }
+
 .channel-column {
     width: 85%;
     display: flex;

@@ -148,7 +148,6 @@ mute.addEventListener("click", () => {
 
 netflix.addEventListener("click", () => {
     this.activarIndicador();
-    numberChannel.style.display = 'none';
     if (!is_platform && is_on) {
         is_platform = true;
         imagenTv.src = this.getImagenChannel('i-netflix');
@@ -160,7 +159,6 @@ netflix.addEventListener("click", () => {
 
 youtube.addEventListener("click", () => {
     this.activarIndicador();
-    numberChannel.style.display = 'none';
     if (!is_platform && is_on) {
         is_platform = true;
         imagenTv.src = this.getImagenChannel('i-youtube');
@@ -172,7 +170,6 @@ youtube.addEventListener("click", () => {
 
 startPlus.addEventListener("click", () => {
     this.activarIndicador();
-    numberChannel.style.display = 'none';
     if (!is_platform && is_on) {
         is_platform = true;
         imagenTv.src = this.getImagenChannel('i-start-plus');
