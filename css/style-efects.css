@@ -1,0 +1,9 @@
+@keyframes parpadeo {
+    0% { opacity: 1; filter: brightness(100%); }
+    50% { opacity: 1; filter: brightness(250%); }
+    100% { opacity: 1; filter: brightness(100%); }
+}
+
+.c-indicador-led {
+    animation: parpadeo 1s infinite;
+}

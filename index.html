@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/style-efects.css">
     <title>TV</title>
 </head>
+
 <body>
     <div class="container-tv">
         <div class="tv">
             <div class="imagen">
-
+                <img class="bienvenida" id="imagen-tv" src="" alt="">
+                <span class="channel-n" id="number-channel"></span>
+                <span class="volumen-n" id="number-vol"></span>
             </div>
             <div class="marca-tv">
-                    <span></span>
-                    <img src="./images/samsung.png" class="logo-samsung">
-                    <span class="circulo-rojo"></span>
-                </div>
+                <span></span>
+                <img src="./images/samsung.png" class="logo-samsung">
+                <span id="indicador-led"></span>
+            </div>
         </div>
         <div class="base-rect">
 
@@ -30,23 +35,24 @@
     <div class="container-control">
         <div class="control-tv">
             <div class="botones-arriba">
-                <span class="btn-power"><i class="bi bi-power"></i></span>
+                <span class="btn-power" id="power"><i class="bi bi-power"></i></span>
                 <span></span>
                 <span class="btn-lujo" style="background-color: rgb(83, 83, 83);"></span>
             </div>
             <div class="numeros">
-                <span class="btn-number">1</span>
-                <span class="btn-number">2</span>
-                <span class="btn-number">3</span>
-                <span class="btn-number">4</span>
-                <span class="btn-number">5</span>
-                <span class="btn-number">6</span>
-                <span class="btn-number">7</span>
-                <span class="btn-number">8</span>
-                <span class="btn-number">9</span>
+                <span class="btn-number btn" onclick="changeChannel(1)">1</span>
+                <span class="btn-number" onclick="changeChannel(2)">2</span>
+                <span class="btn-number" onclick="changeChannel(3)">3</span>
+                <span class="btn-number" onclick="changeChannel(4)">4</span>
+                <span class="btn-number" onclick="changeChannel(5)">5</span>
+                <span class="btn-number" onclick="changeChannel(6)">6</span>
+                <span class="btn-number" onclick="changeChannel(7)">7</span>
+                <span class="btn-number" onclick="changeChannel(8)">8</span>
+                <span class="btn-number" onclick="changeChannel(9)">9</span>
                 <span class="btn-number"><i class="bi bi-volume-mute-fill"></i></span>
-                <span class="btn-number">0</span>
-                <span class="btn-number" style="font-size: 52%; display: flex; align-items: center; justify-content: center;">PREV.</span>
+                <span class="btn-number" onclick="changeChannel(0)">0</span>
+                <span class="btn-number" onclick="changeChannel(null, true)"
+                    style="font-size: 52%; display: flex; align-items: center; justify-content: center;">PREV.</span>
             </div>
             <div class="btn-ex-set">
                 <span class="btn-settings">Menu</span>
@@ -64,12 +70,12 @@
             </div>
             <div class="btn-vol-cha">
                 <div class="volumen">
-                    <div class="subir mayor"><i class="bi bi-plus-lg"></i></div>
-                    <div class="bajar menor"><i class="bi bi-dash-lg"></i></div>
+                    <div class="subir mayor" id="subir-vol"><i class="bi bi-plus-lg"></i></div>
+                    <div class="bajar menor" id="bajar-vol"><i class="bi bi-dash-lg"></i></div>
                 </div>
                 <div class="channel volumen">
-                    <div class="mayor"><i class="bi bi-chevron-up"></i></div>
-                    <div class="menor"><i class="bi bi-chevron-down"></i></div>
+                    <div class="mayor" id="increase"><i class="bi bi-chevron-up"></i></div>
+                    <div class="menor" id="decrease"><i class="bi bi-chevron-down"></i></div>
                 </div>
             </div>
             <div class="btn-extras">
@@ -79,5 +85,7 @@
             </div>
         </div>
     </div>
+    <script src="./javascript/main.js"></script>
 </body>
+
 </html>

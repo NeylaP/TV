@@ -33,8 +33,35 @@ body {
 
 .imagen {
     width: 100%;
-    height: 100%;
+    height: 95%;
     background-color: rgb(32, 32, 32);
+    position: relative;
+    display: inline-block;
+}
+
+.imagen img {
+    display: block;
+}
+
+.channel-n {
+    position: absolute;
+    top:0;
+    left: 94%;
+    color: white;
+    font-weight: bold;
+    font-size: 200%;
+    background-color: transparent;
+}
+
+.volumen-n {
+    position: absolute;
+    top:45%;
+    left: 0;
+    padding-left: 2%;
+    color: white;
+    font-size: 150%;
+    background-color: transparent;
+    backdrop-filter: brightness(0.5) blur(1px);
 }
 
 /* Estilo para el div de marca-tv */
@@ -45,16 +72,17 @@ body {
     width: 100%;
     height: 5%;
 }
+.imagen img{
+    width: 100%;
+    height: 100%;
+}
 
-
-.circulo-rojo {
+#indicador-led {
     width: 1%;
     height: 40%;
     background-color: rgb(99, 0, 0);
     border-radius: 50%;
 }
-
-
 
 .logo-samsung {
     height: 200%;
