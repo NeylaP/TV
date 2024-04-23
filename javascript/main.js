@@ -14,6 +14,7 @@ const mute = document.getElementById('mute');
 const netflix = document.getElementById('netflix');
 const youtube = document.getElementById('youtube');
 const startPlus = document.getElementById('start-plus');
+const channelList = document.getElementById('channel-list');
 const exit = document.getElementById('exit');
 channelData.style.display = 'none';
 imagenTv.style.display = 'none';
@@ -187,6 +188,19 @@ exit.addEventListener("click", () => {
     }
 });
 
+channelList.innerHTML = `<div class="list-container">`;
+for (item of listChannel) {
+    channelList.innerHTML += `
+        <div class="list-item">
+            <span>${item.channel}</span>
+            <div>
+                <h4>${item.name}</h4>
+                <p>${item.program}</p>
+            </div>
+        </div>`;
+}
+channelList.innerHTML += `</div>`;
+
 function changeChannel(channel, prev = false) {
     this.activarIndicador()
     if (is_on && !is_platform && channel != currentChannel) {
@@ -202,7 +216,7 @@ function changeChannel(channel, prev = false) {
         channelData.style.display = 'flex';
         setTimeout(() => {
             channelData.style.display = 'none';
-        },5000);
+        }, 5000);
     }
 }
 
@@ -266,3 +280,5 @@ function getInfoChannel(numeroCanal) {
         img: './images/no-signal.jpg'
     };
 }
+
+

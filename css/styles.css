@@ -62,6 +62,7 @@ body {
     height: 100%;
     position: absolute;
     background-color: aquamarine;
+    overflow: auto; 
   }
 
 .channel-column {
