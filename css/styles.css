@@ -56,14 +56,18 @@ body {
 }
 
 .list-container{
-    overflow: auto;
-    height: 80%;
-    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en navegadores compatibles */
+    -ms-overflow-style: none;
 }
 
-.list-container P{
+.list-container::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en navegadores WebKit (Chrome, Safari, etc.) */
+}
+
+.list-container P {
     font-size: 120%;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     color: aliceblue;
 }
@@ -78,7 +82,13 @@ body {
     flex-direction: column;
     background-color: transparent;
     backdrop-filter: brightness(0.2) blur(1px);
-    overflow: auto;
+  }
+
+  .list-channel p {
+    text-align: center;
+    font-size: 100%;
+    color: azure;
+    font-family: "SamsungOne", Arial, sans-serif;
   }
 
   .list-item {
@@ -93,16 +103,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'SamsungOne', sans-serif;
   }
 
   .item-data{
     width: 70%;
     text-align: left;
+    font-family: 'SamsungOne', sans-serif;
   }
 
   .item-data p {
     font-size: 80%;
     color: white;
+    text-align: left;
   }
 
   .item-data h4 {

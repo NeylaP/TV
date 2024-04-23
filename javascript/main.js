@@ -14,7 +14,7 @@ const mute = document.getElementById('mute');
 const netflix = document.getElementById('netflix');
 const youtube = document.getElementById('youtube');
 const startPlus = document.getElementById('start-plus');
-const channelList = document.getElementById('channel-list');
+const containerList = document.getElementById('container-list');
 const exit = document.getElementById('exit');
 channelData.style.display = 'none';
 imagenTv.style.display = 'none';
@@ -188,19 +188,17 @@ exit.addEventListener("click", () => {
     }
 });
 
-channelList.innerHTML = `<p>CHANNEL LIST</p>
-<div class="list-container">`;
+
 for (item of listChannel) {
-    channelList.innerHTML += `
+    containerList.innerHTML += `
         <div class="list-item">
-            <span class = "item-channel">${item.channel}</span>
+            <span class="item-channel">${item.channel}</span>
             <div class="item-data">
                 <h4>${item.name}</h4>
                 <p>${item.program}</p>
             </div>
         </div>`;
 }
-channelList.innerHTML += `</div>`;
 
 function changeChannel(channel, prev = false) {
     this.activarIndicador()
