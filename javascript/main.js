@@ -188,12 +188,13 @@ exit.addEventListener("click", () => {
     }
 });
 
-channelList.innerHTML = `<div class="list-container">`;
+channelList.innerHTML = `<p>CHANNEL LIST</p>
+<div class="list-container">`;
 for (item of listChannel) {
     channelList.innerHTML += `
         <div class="list-item">
-            <span>${item.channel}</span>
-            <div>
+            <span class = "item-channel">${item.channel}</span>
+            <div class="item-data">
                 <h4>${item.name}</h4>
                 <p>${item.program}</p>
             </div>

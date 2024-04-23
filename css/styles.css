@@ -55,15 +55,61 @@ body {
     width: 25%;
 }
 
+.list-container{
+    overflow: auto;
+    height: 80%;
+    width: 100%;
+}
+
+.list-container P{
+    font-size: 120%;
+    text-align: center;
+    font-weight: bold;
+    color: aliceblue;
+}
+
 .list-channel{
     top: 0;
     right: 0;
     width: 30%;
     height: 100%;
     position: absolute;
-    background-color: aquamarine;
-    overflow: auto; 
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    backdrop-filter: brightness(0.2) blur(1px);
+    overflow: auto;
   }
+
+  .list-item {
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .item-channel{
+    height: auto;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item-data{
+    width: 70%;
+    text-align: left;
+  }
+
+  .item-data p {
+    font-size: 80%;
+    color: white;
+  }
+
+  .item-data h4 {
+    color: rgba(88, 155, 231, 0.979);
+    font-size: 100%;
+  }
+
 
 .channel-column {
     width: 85%;
