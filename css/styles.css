@@ -124,6 +124,43 @@ body {
     font-size: 100%;
   }
 
+  .container-menu{
+    top: 10%;
+    bottom: 10%;
+    right: 10%;
+    left: 10%;
+    position: absolute;
+    background-color: transparent;
+    backdrop-filter: brightness(0.2) blur(1px);
+    display: flex;
+    flex-direction: row;
+  }
+
+  .menu-options{
+    width: 30%;
+    display: grid;
+    background-color: transparent;
+    backdrop-filter: brightness(0.2) blur(1px);
+  }
+
+  .options{
+    padding-left: 5%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    /* height: 16%; */
+  }
+
+  .options img{
+    width: 20% !important;
+    height: 50% !important;
+    margin-right: 10%;
+  }
+  .result-options{
+    width: 70%;
+    background-color: violet;
+  }
 
 .channel-column {
     width: 85%;
