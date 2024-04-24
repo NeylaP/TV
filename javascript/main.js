@@ -14,9 +14,17 @@ const mute = document.getElementById('mute');
 const netflix = document.getElementById('netflix');
 const youtube = document.getElementById('youtube');
 const startPlus = document.getElementById('start-plus');
+const btnList = document.getElementById('btn-list');
 const containerList = document.getElementById('container-list');
+const divChannelList = document.getElementById('channel-list');
 const exit = document.getElementById('exit');
+const up = document.getElementById('up');
+const down = document.getElementById('down');
+const left = document.getElementById('left');
+const right = document.getElementById('right');
+const ok = document.getElementById('ok');
 channelData.style.display = 'none';
+divChannelList.style.display = 'none';
 imagenTv.style.display = 'none';
 
 let is_platform = false;
@@ -25,7 +33,9 @@ let currentChannel = 1;
 let lastChannel = 1;
 let volumen = 10;
 let is_mute = false;
-
+let is_list_channel = false;
+let auxChannel = null;
+let lastAuxChannel = null;
 const listChannel = [
     {
         name: 'CARACOL',
@@ -182,23 +192,68 @@ startPlus.addEventListener("click", () => {
 
 exit.addEventListener("click", () => {
     this.activarIndicador()
+    divChannelList.style.display = 'none';
+    containerList.innerHTML = '';
+    auxChannel = null;
+    lastAuxChannel = null;
     if (is_on && is_platform) {
         is_platform = false;
         imagenTv.src = this.getImagenChannel(currentChannel);
     }
 });
 
+btnList.addEventListener("click", () => {
+    if (is_on){
+        for (item of listChannel) {
+            containerList.innerHTML += `
+                <div class="list-item" id="channel${item.channel}">
+                    <span class="item-channel">${item.channel}</span>
+                    <div class="item-data">
+                        <h4>${item.name}</h4>
+                        <p>${item.program}</p>
+                    </div>
+                </div>`;
+        }
+        divChannelList.style.display = 'flex';
+        is_list_channel = true;
+        document.getElementById('channel'+currentChannel).style.border = "2px solid #003366";
+        document.getElementById('channel'+currentChannel).scrollIntoView();   
+    }
+});
 
-for (item of listChannel) {
-    containerList.innerHTML += `
-        <div class="list-item">
-            <span class="item-channel">${item.channel}</span>
-            <div class="item-data">
-                <h4>${item.name}</h4>
-                <p>${item.program}</p>
-            </div>
-        </div>`;
-}
+up.addEventListener("click", () => {
+    if(is_list_channel && ((auxChannel == null && currentChannel > 1) || (auxChannel != null && auxChannel > 1))){
+        lastAuxChannel = (auxChannel === null) ? currentChannel : auxChannel;
+        auxChannel = (auxChannel === null) ? currentChannel - 1 : auxChannel - 1;
+        if(lastAuxChannel != null){
+            document.getElementById('channel'+lastAuxChannel).style.border = "";
+        }
+        document.getElementById('channel'+auxChannel).style.border = "3px solid #003366";
+        document.getElementById('channel'+auxChannel).scrollIntoView();
+    }
+});
+
+down.addEventListener("click", () => {
+    if(is_list_channel && auxChannel < listChannel.length){
+        lastAuxChannel = (auxChannel === null) ? currentChannel : auxChannel;
+        auxChannel = (auxChannel === null) ? currentChannel + 1 : auxChannel + 1;
+        if(lastAuxChannel != null || (currentChannel)){
+            document.getElementById('channel'+lastAuxChannel).style.border = "";
+        }
+        document.getElementById('channel'+auxChannel).style.border = "2px solid #003366";
+        document.getElementById('channel'+auxChannel).scrollIntoView();
+    }
+});
+
+ok.addEventListener("click", () => {
+    if(is_on && is_list_channel){
+        changeChannel(auxChannel);
+        divChannelList.style.display = 'none';
+        containerList.innerHTML = '';
+        auxChannel = null;
+        lastAuxChannel = null;
+    }
+});
 
 function changeChannel(channel, prev = false) {
     this.activarIndicador()

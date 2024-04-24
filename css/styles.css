@@ -59,6 +59,7 @@ body {
     overflow-y: auto;
     scrollbar-width: none; /* Oculta la barra de desplazamiento en navegadores compatibles */
     -ms-overflow-style: none;
+    width: 100%;
 }
 
 .list-container::-webkit-scrollbar {
