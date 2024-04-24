@@ -36,6 +36,7 @@ let is_mute = false;
 let is_list_channel = false;
 let auxChannel = null;
 let lastAuxChannel = null;
+let opc = 1;
 const listChannel = [
     {
         name: 'CARACOL',
@@ -231,6 +232,11 @@ up.addEventListener("click", () => {
         document.getElementById('channel'+auxChannel).style.border = "3px solid #003366";
         document.getElementById('channel'+auxChannel).scrollIntoView();
     }
+    if(opc > 1){
+        document.getElementById('opc'+opc).style.border = "";
+        opc--;
+        document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
+    }
 });
 
 down.addEventListener("click", () => {
@@ -243,6 +249,11 @@ down.addEventListener("click", () => {
         document.getElementById('channel'+auxChannel).style.border = "2px solid #003366";
         document.getElementById('channel'+auxChannel).scrollIntoView();
     }
+    if(opc < 6){
+        document.getElementById('opc'+opc).style.border = "";
+        opc++;
+        document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
+    }
 });
 
 ok.addEventListener("click", () => {
@@ -254,6 +265,10 @@ ok.addEventListener("click", () => {
         lastAuxChannel = null;
     }
 });
+
+
+//Aqui se va colocar el llamado cuando  le den click a menu
+document.getElementById('opc1').style.border = "3px solid #00bfff";
 
 function changeChannel(channel, prev = false) {
     this.activarIndicador()
