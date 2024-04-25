@@ -55,6 +55,19 @@ body {
     width: 25%;
 }
 
+.info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent;
+    backdrop-filter: brightness(0.5) blur(1px);
+    text-align: right;
+    width: auto;
+    color: white;
+    font-family: "SamsungOne", Arial, sans-serif;
+    font-weight: bold;
+}
+
 .list-container{
     overflow-y: auto;
     scrollbar-width: none; /* Oculta la barra de desplazamiento en navegadores compatibles */
@@ -189,6 +202,7 @@ body {
     border-right: 1px solid rgb(117, 115, 115);
     justify-content: flex-start;
     align-items: space-between;
+    font-family: "SamsungOne", Arial, sans-serif;
   }
 
   .channel-number{

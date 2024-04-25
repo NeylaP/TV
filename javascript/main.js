@@ -26,10 +26,12 @@ const down = document.getElementById('down');
 const left = document.getElementById('left');
 const right = document.getElementById('right');
 const ok = document.getElementById('ok');
+const info = document.getElementById('info');
 channelData.style.display = 'none';
 divChannelList.style.display = 'none';
 imagenTv.style.display = 'none';
 divMenu.style.display = 'none';
+info.style.display = 'none';
 
 let is_platform = false;
 let is_on = false;
@@ -108,9 +110,11 @@ power.addEventListener("click", () => {
         let infoChannel = this.getInfoChannel(currentChannel);
         setTimeout(() => {
             imagenTv.src = infoChannel.img;
+            info.style.display = 'block';
         }, 1000);
     } else {
         imagenTv.style.display = 'none';
+        info.style.display = 'none';
     }
 });
 
@@ -167,6 +171,7 @@ netflix.addEventListener("click", () => {
     this.activarIndicador();
     if (!is_platform && is_on) {
         is_platform = true;
+        info.style.display = 'none';
         imagenTv.src = this.getImagenChannel('i-netflix');
         setTimeout(() => {
             imagenTv.src = this.getImagenChannel('netflix-full');
@@ -178,6 +183,7 @@ youtube.addEventListener("click", () => {
     this.activarIndicador();
     if (!is_platform && is_on) {
         is_platform = true;
+        info.style.display = 'none';
         imagenTv.src = this.getImagenChannel('i-youtube');
         setTimeout(() => {
             imagenTv.src = this.getImagenChannel('youtube-full');
@@ -189,6 +195,7 @@ startPlus.addEventListener("click", () => {
     this.activarIndicador();
     if (!is_platform && is_on) {
         is_platform = true;
+        info.style.display = 'none';
         imagenTv.src = this.getImagenChannel('i-start-plus');
         setTimeout(() => {
             imagenTv.src = this.getImagenChannel('start-plus-full');
@@ -203,7 +210,7 @@ exit.addEventListener("click", () => {
     auxChannel = null;
     lastAuxChannel = null;
     divMenu.style.display = 'none';
-    document.getElementById('opc'+opc).style.border = "";
+    document.getElementById('opc' + opc).style.border = "";
     is_menu = false;
     is_list_channel = false;
     opc = 1;
@@ -211,10 +218,11 @@ exit.addEventListener("click", () => {
         is_platform = false;
         imagenTv.src = this.getImagenChannel(currentChannel);
     }
+    info.style.display = 'block';
 });
 
 btnList.addEventListener("click", () => {
-    if (is_on){
+    if (is_on) {
         for (item of listChannel) {
             containerList.innerHTML += `
                 <div class="list-item" id="channel${item.channel}">
@@ -227,49 +235,49 @@ btnList.addEventListener("click", () => {
         }
         divChannelList.style.display = 'flex';
         is_list_channel = true;
-        document.getElementById('channel'+currentChannel).style.border = "2px solid #003366";
-        document.getElementById('channel'+currentChannel).scrollIntoView();   
+        document.getElementById('channel' + currentChannel).style.border = "2px solid #003366";
+        document.getElementById('channel' + currentChannel).scrollIntoView();
     }
 });
 
 up.addEventListener("click", () => {
-    if(is_list_channel && ((auxChannel == null && currentChannel > 1) || (auxChannel != null && auxChannel > 1))){
+    if (is_list_channel && ((auxChannel == null && currentChannel > 1) || (auxChannel != null && auxChannel > 1))) {
         lastAuxChannel = (auxChannel === null) ? currentChannel : auxChannel;
         auxChannel = (auxChannel === null) ? currentChannel - 1 : auxChannel - 1;
-        if(lastAuxChannel != null){
-            document.getElementById('channel'+lastAuxChannel).style.border = "";
+        if (lastAuxChannel != null) {
+            document.getElementById('channel' + lastAuxChannel).style.border = "";
         }
-        document.getElementById('channel'+auxChannel).style.border = "3px solid #003366";
-        document.getElementById('channel'+auxChannel).scrollIntoView();
+        document.getElementById('channel' + auxChannel).style.border = "3px solid #003366";
+        document.getElementById('channel' + auxChannel).scrollIntoView();
     }
-    if(opc > 1){
-        document.getElementById('opc'+opc).style.border = "";
+    if (opc > 1) {
+        document.getElementById('opc' + opc).style.border = "";
         opc--;
         this.showResultOption(opc)
-        document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
+        document.getElementById('opc' + opc).style.border = "3px solid #00bfff";
     }
 });
 
 down.addEventListener("click", () => {
-    if(is_list_channel && auxChannel < listChannel.length){
+    if (is_list_channel && auxChannel < listChannel.length) {
         lastAuxChannel = (auxChannel === null) ? currentChannel : auxChannel;
         auxChannel = (auxChannel === null) ? currentChannel + 1 : auxChannel + 1;
-        if(lastAuxChannel != null || (currentChannel)){
-            document.getElementById('channel'+lastAuxChannel).style.border = "";
+        if (lastAuxChannel != null || (currentChannel)) {
+            document.getElementById('channel' + lastAuxChannel).style.border = "";
         }
-        document.getElementById('channel'+auxChannel).style.border = "2px solid #003366";
-        document.getElementById('channel'+auxChannel).scrollIntoView();
+        document.getElementById('channel' + auxChannel).style.border = "2px solid #003366";
+        document.getElementById('channel' + auxChannel).scrollIntoView();
     }
-    if(opc < 6){
-        document.getElementById('opc'+opc).style.border = "";
+    if (opc < 6) {
+        document.getElementById('opc' + opc).style.border = "";
         opc++;
         this.showResultOption(opc)
-        document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
+        document.getElementById('opc' + opc).style.border = "3px solid #00bfff";
     }
 });
 
 ok.addEventListener("click", () => {
-    if(is_on && is_list_channel){
+    if (is_on && is_list_channel) {
         changeChannel(auxChannel);
         divChannelList.style.display = 'none';
         containerList.innerHTML = '';
@@ -280,16 +288,13 @@ ok.addEventListener("click", () => {
 
 btnMenu.addEventListener("click", () => {
     this.activarIndicador();
-    if(is_on && !is_platform && !is_list_channel){
+    if (is_on && !is_platform && !is_list_channel) {
         is_menu = true;
         this.showResultOption(opc)
         divMenu.style.display = 'flex';
-        document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
+        document.getElementById('opc' + opc).style.border = "3px solid #00bfff";
     }
-})
-
-//Aqui se va colocar el llamado cuando  le den click a menu
-document.getElementById('opc1').style.border = "3px solid #00bfff";
+});
 
 function changeChannel(channel, prev = false) {
     this.activarIndicador()
@@ -321,6 +326,24 @@ function getImagenChannel(channel) {
     switch (channel) {
         case 'inicio':
             return './images/Samsung-Smart-TV-logo.jpg'
+        case 1:
+            return './images/caracol2.jpg'
+        case 2:
+            return './images/start-channel.jpeg'
+        case 3:
+            return './images/rcn.jpg'
+        case 4:
+            return './images/colombia.jpg'
+        case 5:
+            return './images/squad.jpeg'
+        case 6:
+            return './images/golden.jpg'
+        case 7:
+            return './images/juegos.jpg'
+        case 8:
+            return './images/spirit.jpg'
+        case 9:
+            return './images/telenovelas.jpg'
         case 'i-netflix':
             return './images/intro-netflix.webp'
         case 'netflix-full':
@@ -339,7 +362,7 @@ function getImagenChannel(channel) {
 }
 
 function showResultOption(opc) {
-    switch(opc){
+    switch (opc) {
         case 1:
             resultOptions.innerHTML = `<span>Imagen</span>
             <ul>
@@ -350,7 +373,7 @@ function showResultOption(opc) {
                 <li><p>Color</p><p>45</p></li>
             </ul>`
             break
-         case 2:
+        case 2:
             resultOptions.innerHTML = `<span>Sonido</span>
             <ul>
                 <li><p>Sonido Modo</p><p>Música</p></li>
@@ -359,8 +382,8 @@ function showResultOption(opc) {
                 <li><p>Configur. adicionales</p></li>
                 <li><p>Reinic. de son.</p></li>
             </ul>`
-            break  
-         case 3:
+            break
+        case 3:
             resultOptions.innerHTML = `<span>Emisión</span>
             <ul>
                 <li><p>Ajustes automático</p><p>Aire</p></li>
@@ -369,8 +392,8 @@ function showResultOption(opc) {
                 <li><p>Editar canal</p></li>
                 <li><p>Editar favoritos</p></li>
             </ul>`
-            break  
-         case 4:
+            break
+        case 4:
             resultOptions.innerHTML = `<span>Red</span>
             <ul>
                 <li><p>Estado de red</p><p>Aire</p></li>
@@ -379,8 +402,8 @@ function showResultOption(opc) {
                 <li><p>Configuración del dispositivo multimedia</p></li>
                 <li><p>Nombre dispos.</p><p>[TV]Samsung L....</p></li>
             </ul>`
-            break  
-         case 5:
+            break
+        case 5:
             resultOptions.innerHTML = `<span>Sistema</span>
             <ul>
                 <li><p>Accesibilidad</p></li>
@@ -389,8 +412,8 @@ function showResultOption(opc) {
                 <li><p>Admin. de disp.</p></li>
                 <li><p>Tiempo</p></li>
             </ul>`
-            break  
-         case 6:
+            break
+        case 6:
             resultOptions.innerHTML = `<span>Soporte técnico</span>
             <ul>
                 <li><p>Administración remota</p><p>Apagado</p></li>
@@ -399,7 +422,7 @@ function showResultOption(opc) {
                 <li><p>Actualización de software</p></li>
                 <li><p>Modo de uso</p><p>Uso domiciliario</p></li>
             </ul>`
-            break  
+            break
     }
 }
 
@@ -418,4 +441,13 @@ function getInfoChannel(numeroCanal) {
     };
 }
 
+function actualizarTime() {
+    let elementoFechaHora = document.getElementById('time');
+    let fechaHora = new Date();
+    let fecha = fechaHora.toLocaleDateString();
+    let hora = fechaHora.toLocaleTimeString();
+    elementoFechaHora.textContent = fecha + ' - ' + hora;
+}
 
+setInterval(actualizarTime, 1000);
+actualizarTime();
