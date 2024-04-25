@@ -159,8 +159,28 @@ body {
   }
   .result-options{
     width: 70%;
-    background-color: violet;
+    background-color: #0066ff;
+    font-family: 'SamsungOne', sans-serif;
   }
+
+  .result-options span{
+    margin-left: 2%;
+    font-size: 20px;
+  }
+
+  .result-options ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-options ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 15px;
+}
 
 .channel-column {
     width: 85%;

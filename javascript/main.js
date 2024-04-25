@@ -17,6 +17,9 @@ const startPlus = document.getElementById('start-plus');
 const btnList = document.getElementById('btn-list');
 const containerList = document.getElementById('container-list');
 const divChannelList = document.getElementById('channel-list');
+const resultOptions = document.getElementById('result-options');
+const btnMenu = document.getElementById('btn-menu');
+const divMenu = document.getElementById('container-menu');
 const exit = document.getElementById('exit');
 const up = document.getElementById('up');
 const down = document.getElementById('down');
@@ -26,6 +29,7 @@ const ok = document.getElementById('ok');
 channelData.style.display = 'none';
 divChannelList.style.display = 'none';
 imagenTv.style.display = 'none';
+divMenu.style.display = 'none';
 
 let is_platform = false;
 let is_on = false;
@@ -37,6 +41,7 @@ let is_list_channel = false;
 let auxChannel = null;
 let lastAuxChannel = null;
 let opc = 1;
+let is_menu = false;
 const listChannel = [
     {
         name: 'CARACOL',
@@ -197,6 +202,11 @@ exit.addEventListener("click", () => {
     containerList.innerHTML = '';
     auxChannel = null;
     lastAuxChannel = null;
+    divMenu.style.display = 'none';
+    document.getElementById('opc'+opc).style.border = "";
+    is_menu = false;
+    is_list_channel = false;
+    opc = 1;
     if (is_on && is_platform) {
         is_platform = false;
         imagenTv.src = this.getImagenChannel(currentChannel);
@@ -235,6 +245,7 @@ up.addEventListener("click", () => {
     if(opc > 1){
         document.getElementById('opc'+opc).style.border = "";
         opc--;
+        this.showResultOption(opc)
         document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
     }
 });
@@ -252,6 +263,7 @@ down.addEventListener("click", () => {
     if(opc < 6){
         document.getElementById('opc'+opc).style.border = "";
         opc++;
+        this.showResultOption(opc)
         document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
     }
 });
@@ -266,6 +278,15 @@ ok.addEventListener("click", () => {
     }
 });
 
+btnMenu.addEventListener("click", () => {
+    this.activarIndicador();
+    if(is_on && !is_platform && !is_list_channel){
+        is_menu = true;
+        this.showResultOption(opc)
+        divMenu.style.display = 'flex';
+        document.getElementById('opc'+opc).style.border = "3px solid #00bfff";
+    }
+})
 
 //Aqui se va colocar el llamado cuando  le den click a menu
 document.getElementById('opc1').style.border = "3px solid #00bfff";
@@ -300,24 +321,6 @@ function getImagenChannel(channel) {
     switch (channel) {
         case 'inicio':
             return './images/Samsung-Smart-TV-logo.jpg'
-        case 1:
-            return './images/caracol2.jpg'
-        case 2:
-            return './images/start-channel.jpeg'
-        case 3:
-            return './images/rcn.jpg'
-        case 4:
-            return './images/colombia.jpg'
-        case 5:
-            return './images/squad.jpeg'
-        case 6:
-            return './images/golden.jpg'
-        case 7:
-            return './images/juegos.jpg'
-        case 8:
-            return './images/spirit.jpg'
-        case 9:
-            return './images/telenovelas.jpg'
         case 'i-netflix':
             return './images/intro-netflix.webp'
         case 'netflix-full':
@@ -332,6 +335,71 @@ function getImagenChannel(channel) {
             return './images/start-plus-full.jpg'
         default:
             return './images/no-signal.jpg'
+    }
+}
+
+function showResultOption(opc) {
+    switch(opc){
+        case 1:
+            resultOptions.innerHTML = `<span>Imagen</span>
+            <ul>
+                <li><p>Modo de imagen</p><p>Natural</p></li>
+                <li><p>Luz de fondo</p> <p>12</p></li>
+                <li><p>Contraste</p><p>60</p></li>
+                <li><p>Brillo</p><p>55</p></li>
+                <li><p>Color</p><p>45</p></li>
+            </ul>`
+            break
+         case 2:
+            resultOptions.innerHTML = `<span>Sonido</span>
+            <ul>
+                <li><p>Sonido Modo</p><p>Música</p></li>
+                <li><p>Efecto de sonido</p></li>
+                <li><p>Ajustes del altavoz</p></li>
+                <li><p>Configur. adicionales</p></li>
+                <li><p>Reinic. de son.</p></li>
+            </ul>`
+            break  
+         case 3:
+            resultOptions.innerHTML = `<span>Emisión</span>
+            <ul>
+                <li><p>Ajustes automático</p><p>Aire</p></li>
+                <li><p>Guia</p></li>
+                <li><p>Admin. de programa</p></li>
+                <li><p>Editar canal</p></li>
+                <li><p>Editar favoritos</p></li>
+            </ul>`
+            break  
+         case 4:
+            resultOptions.innerHTML = `<span>Red</span>
+            <ul>
+                <li><p>Estado de red</p><p>Aire</p></li>
+                <li><p>Configuración de red</p></li>
+                <li><p>Wi-Fi directa</p></li>
+                <li><p>Configuración del dispositivo multimedia</p></li>
+                <li><p>Nombre dispos.</p><p>[TV]Samsung L....</p></li>
+            </ul>`
+            break  
+         case 5:
+            resultOptions.innerHTML = `<span>Sistema</span>
+            <ul>
+                <li><p>Accesibilidad</p></li>
+                <li><p>Configuración</p></li>
+                <li><p>Idioma del menú</p><p>Español</p></li>
+                <li><p>Admin. de disp.</p></li>
+                <li><p>Tiempo</p></li>
+            </ul>`
+            break  
+         case 6:
+            resultOptions.innerHTML = `<span>Soporte técnico</span>
+            <ul>
+                <li><p>Administración remota</p><p>Apagado</p></li>
+                <li><p>e-Manual</p></li>
+                <li><p>Autodiagnóstico</p></li>
+                <li><p>Actualización de software</p></li>
+                <li><p>Modo de uso</p><p>Uso domiciliario</p></li>
+            </ul>`
+            break  
     }
 }
 
