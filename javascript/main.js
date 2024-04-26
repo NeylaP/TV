@@ -113,6 +113,7 @@ power.addEventListener("click", () => {
             info.style.display = 'block';
         }, 1000);
     } else {
+        document.getElementById("exit").click();
         imagenTv.style.display = 'none';
         info.style.display = 'none';
     }
