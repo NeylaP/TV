@@ -19,7 +19,7 @@ Este proyecto ofrece nos brinda una forma dinámica de controlar una pantalla de
 
 ## <a id="preview">Preview :eyes:</a>
 
-Puedes visualizar el proyecto [aqui](https://javi-gallego.github.io/FSD_Proyecto2/)
+Puedes visualizar el proyecto [aqui](https://neylap.github.io/TV/)
 
 ## <a id="features">Caracteristicas</a>
 El televisor se encenderá únicamente al presionar el botón de encendido, y este mismo botón también servirá para apagarlo. Los demás botones no tendrán ninguna funcionalidad mientras el televisor esté apagado.
