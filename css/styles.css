@@ -1,9 +1,7 @@
 body {
-    display: flex;
     width: 100vw;
     height: 100vh;
     margin: 0;
-    flex-direction: row;
     user-select: none;
     cursor: pointer;
     background-color: silver;
@@ -16,7 +14,6 @@ body {
 }
 
 .container-tv {
-    flex: 8;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -285,7 +282,6 @@ body {
 
 
 .container-control {
-    flex: 2;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -340,7 +336,7 @@ body {
     width: 80%;
     height: 70%;
     border-radius: 50%;
-    line-height: 180%;
+    /* line-height: 180%; */
     background-color: rgb(83, 83, 83);
     color: white;
 }
@@ -514,7 +510,7 @@ span {
 
 /* Consulta de medios para pantallas pequeñas */
 @media (max-width: 768px) {
-    body {
+    /* body {
         flex-direction: column;
     }
 
@@ -547,5 +543,5 @@ span {
     .btn-extras {
         flex-direction: column;
         height: auto;
-    }
+    } */
 }
