@@ -120,14 +120,14 @@ power.addEventListener("click", () => {
 
 increaseChannel.addEventListener("click", () => {
     this.activarIndicador();
-    if (is_on && !is_platform && currentChannel < 15) {
+    if (is_on && !is_platform && currentChannel < 15 && !is_menu) {
         this.changeChannel(currentChannel + 1)
     }
 })
 
 decreaseChannel.addEventListener("click", () => {
     this.activarIndicador();
-    if (is_on && !is_platform && currentChannel > 0) {
+    if (is_on && !is_platform && currentChannel > 0 && !is_menu) {
         this.changeChannel(currentChannel - 1)
     }
 })
@@ -174,8 +174,10 @@ mute.addEventListener("click", () => {
 
 netflix.addEventListener("click", () => {
     this.activarIndicador();
-    if (!is_platform && is_on) {
+    if (!is_platform && !is_menu && is_on) {
         is_platform = true;
+        is_list_channel = false;
+        divChannelList.style.display = 'none';
         info.style.display = 'none';
         imagenTv.src = this.getImagenChannel('i-netflix');
         setTimeout(() => {
@@ -186,8 +188,10 @@ netflix.addEventListener("click", () => {
 
 youtube.addEventListener("click", () => {
     this.activarIndicador();
-    if (!is_platform && is_on) {
+    if (!is_platform && !is_menu && is_on) {
         is_platform = true;
+        is_list_channel = false;
+        divChannelList.style.display = 'none';
         info.style.display = 'none';
         imagenTv.src = this.getImagenChannel('i-youtube');
         setTimeout(() => {
@@ -198,9 +202,11 @@ youtube.addEventListener("click", () => {
 
 startPlus.addEventListener("click", () => {
     this.activarIndicador();
-    if (!is_platform && is_on) {
+    if (!is_platform && !is_menu && is_on) {
         is_platform = true;
+        is_list_channel = false;
         info.style.display = 'none';
+        divChannelList.style.display = 'none';
         imagenTv.src = this.getImagenChannel('i-start-plus');
         setTimeout(() => {
             imagenTv.src = this.getImagenChannel('start-plus-full');
@@ -228,7 +234,7 @@ exit.addEventListener("click", () => {
 
 btnList.addEventListener("click", () => {
     this.activarIndicador();
-    if (is_on && !is_platform) {
+    if (is_on && !is_platform && !is_menu) {
         for (item of listChannel) {
             containerList.innerHTML += `
                 <div class="list-item" id="channel${item.channel}">
@@ -307,7 +313,9 @@ btnMenu.addEventListener("click", () => {
 
 function changeChannel(channel, prev = false) {
     this.activarIndicador()
-    if (is_on && !is_platform && channel != currentChannel) {
+    if (is_on && !is_menu && !is_platform && channel != currentChannel) {
+        is_list_channel = false;
+        divChannelList.style.display = 'none';
         channel = (prev) ? lastChannel : channel;
         const infoChannel = this.getInfoChannel(channel);
         imagenTv.src = infoChannel.img;
