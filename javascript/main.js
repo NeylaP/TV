@@ -119,18 +119,21 @@ power.addEventListener("click", () => {
 });
 
 increaseChannel.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_on && !is_platform && currentChannel < 15) {
         this.changeChannel(currentChannel + 1)
     }
 })
 
 decreaseChannel.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_on && !is_platform && currentChannel > 0) {
         this.changeChannel(currentChannel - 1)
     }
 })
 
 subirVol.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_on) {
         volumen = (volumen < 100) ? volumen + 1 : 100;
         numberVolumen.innerHTML = String(volumen) + ' <i class="bi bi-volume-up"></i>';
@@ -142,6 +145,7 @@ subirVol.addEventListener("click", () => {
 })
 
 bajarVol.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_on) {
         volumen = (volumen > 0) ? volumen - 1 : 0;
         numberVolumen.innerHTML = String(volumen) + ' <i class="bi bi-volume-up"></i>';
@@ -153,6 +157,7 @@ bajarVol.addEventListener("click", () => {
 })
 
 mute.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_mute) {
         is_mute = false;
         numberVolumen.innerHTML = String(volumen) + ' <i class="bi bi-volume-up"></i>';
@@ -222,7 +227,8 @@ exit.addEventListener("click", () => {
 });
 
 btnList.addEventListener("click", () => {
-    if (is_on) {
+    this.activarIndicador();
+    if (is_on && !is_platform) {
         for (item of listChannel) {
             containerList.innerHTML += `
                 <div class="list-item" id="channel${item.channel}">
@@ -241,6 +247,7 @@ btnList.addEventListener("click", () => {
 });
 
 up.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_list_channel && ((auxChannel == null && currentChannel > 1) || (auxChannel != null && auxChannel > 1))) {
         lastAuxChannel = (auxChannel === null) ? currentChannel : auxChannel;
         auxChannel = (auxChannel === null) ? currentChannel - 1 : auxChannel - 1;
@@ -259,6 +266,7 @@ up.addEventListener("click", () => {
 });
 
 down.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_list_channel && auxChannel < listChannel.length) {
         lastAuxChannel = (auxChannel === null) ? currentChannel : auxChannel;
         auxChannel = (auxChannel === null) ? currentChannel + 1 : auxChannel + 1;
@@ -277,6 +285,7 @@ down.addEventListener("click", () => {
 });
 
 ok.addEventListener("click", () => {
+    this.activarIndicador();
     if (is_on && is_list_channel) {
         changeChannel(auxChannel);
         divChannelList.style.display = 'none';
