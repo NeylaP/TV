@@ -33,8 +33,8 @@ En la esquina derecha de la pantalla, siempre se mostrará la hora en tiempo rea
 ## <a id="instalacion">Instalación </a>
 Para poder usar este proyecto sigue los siguientes pasos:
  - Abre tu terminal o línea de comandos y ejecuta el siguiente comando para clonar el repositorio desde GitHub **git clone https://github.com/NeylaP/TV.git**
-- Una vez clonado el repositorio, accede al directorio del proyecto
-- Abre la carpeta del proyecto en tu editor de texto o IDE favorito y ya puedes interactuar con el y modificarlo a tu gusto. 
+- Una vez clonado el repositorio, accede al directorio del proyecto.
+- Abre la carpeta del proyecto en tu editor de texto o IDE favorito, ahora ya puedes interactuar con el y modificarlo a tu gusto. 
 ## <a id="autora">Autora</a>
 
 - **Neyla Peña M.** - Developer
